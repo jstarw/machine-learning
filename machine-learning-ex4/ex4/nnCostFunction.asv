@@ -91,10 +91,7 @@ for i=1:m
     Theta2_grad = (1/m).*delta2;
     
     %Part 3: add regularization term
-    theta1reg = [zeros(size(Theta1,1),1), Theta1(:,2:end)];
-    theta2reg = [zeros(size(Theta2,1),1), Theta2(:,2:end)];
-    Theta1_grad = Theta1_grad + (lambda/m).*theta1reg;
-    Theta2_grad = Theta2_grad + (lambda/m).*theta2reg;
+    Theta1_grad = Theta1_grad + lambda.*Theta1;
 end;
 
 % Part 3: Implement regularization with the cost function and gradients.
